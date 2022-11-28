@@ -3,16 +3,13 @@
     padding: 0;
 }
 
-body {
-    /* background-color: #F2F2F2; */
+body {    
     font-family: 'Raleway', sans-serif;
     text-align: center;
 }
 
-header {
-    /* min-height: 100vh; */
+header {    
     width: 100%;
-
 }
 
 nav {
@@ -91,16 +88,16 @@ nav img {
 #search-mob {
     color: white;
     background-color: #0065FC;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-top-right-radius: 0.33rem;
+    border-bottom-right-radius: 0.33rem;
     display: none;
     position: relative;
-    left: -5px;
+    left: -0.33rem;
 }
 
 
 h6 {
-    padding: 10px 0 20px 0;
+    padding: 0.7rem 0 1.2rem 0;
     font: 100;
 }
 
@@ -108,23 +105,21 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     font: 300;
-    padding: 15px 0;
-    /* justify-content: space-between; */
-    
+    padding: 1rem 0;    
 }
 
 .filters button {
-    height: 30px;
-    margin: 0 15px;
-    padding: 0px 15px;
+    height: 2rem;
+    margin: 0 1rem;
+    padding: 0px 1rem;
     background-color: white;
     border: 2px solid #F2F2F2;
-    border-radius: 12px;
+    border-radius: 0.8rem;
 }
 
 .filters button i {
-    height: 30px;
-    width: 30px;
+    height: 2rem;
+    width: 2rem;
     position: relative;
     left: -10px;
     top: -2px;
@@ -136,7 +131,7 @@ h6 {
 }
 
 .filters div {
-    margin: 0 15px 0 0;
+    margin: 0 1rem 0 0;
     padding: 3px 5px 3px 0;
 }
 
@@ -146,29 +141,36 @@ h6 {
 
 .info i {
     border: 1px solid #F2F2F2;
-    width: 10px;
-    height: 10px;
+    width: 0.7rem;
+    height: 0.7rem;
     border-radius: 50%;
     color: #0065FC;
-    font-size: 8px;
+    font-size: 0.5rem;
     text-align: center;
 }
 .info p {
-    font-size: 10px;
-    padding: 0 0 0 10px;
+    font-size: 0.7rem;
+    padding: 0 0 0 0.6rem;
 }
 
 .main-hotels {
-    display: grid;
-    grid-template: 1fr / 2fr 1fr;
+    display: grid;    
     text-align: start;
     padding: 2% 6%;
-    gap: 20px;
+    gap: 1rem;
+}
+
+#accomodation-block {
+    grid-area: a;
+}
+
+#popular-block {
+    grid-area: p;
 }
 
 .main-hotels div {
     background-color: #F2F2F2;
-    border-radius: 6px;
+    border-radius: 1em;
 }
 
 .main-hotels div div i {
@@ -181,25 +183,56 @@ h6 {
     flex-wrap: wrap;    
     justify-content: space-around;
     align-content: space-around;
+    padding: 0.5rem;
+}
+
+.title-block {
+    padding: 1.5rem 0 1rem 2rem;
+    font-size: 1.5rem;
 }
 
 .hotel-accomodation {
-    width: 260px;
-    height: 200px;
+    width: 28%;
+    height: 100%;
     background-color: white !important;
-    margin: 15px;
+    margin: 0.5rem;
+    padding: 0.5rem;
 }
 
 .hotel-accomodation img {
-    height: 70%;
-    width: 95%;
-    margin: 6px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    aspect-ratio: 2/1;
+    max-width: 100%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    object-fit: cover;
 
 }
 
+.hotel-name {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
 
+.night-price {
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.stars {
+    display: flex;
+    background-color: white !important;
+    margin-top: 0.5rem;
+    color: #0065FC;
+}
+
+.stars i {
+    height: 0.3rem;
+}
+
+#show-more {
+    padding: 1rem 0 2rem 2rem;
+    font-size: 1.2rem;
+}
 
 /* tablet version */
 @media all and (min-width: 992px) {
@@ -217,6 +250,13 @@ h6 {
         .nav-links ul li:hover::before {
             width: 100%;
         }
+        .main-hotels {
+                    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+                    grid-template-areas:
+                        "a a p"
+                        "a a p"
+                    ;
+                }
 
 }
 
@@ -236,6 +276,13 @@ h6 {
     .nav-links ul li:hover::before {
             width: 100%;
         }
+    .main-hotels {
+            grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+            grid-template-areas:
+                    "a a p"
+                    "a a p"
+                ;
+    }
 }
 
 /* mobile version */
@@ -278,6 +325,43 @@ h6 {
     .form label {
         display: none;
     }
+
+    .hotel-accomodation {
+            width: 85%;
+    }
+        .main-hotels {            
+            grid-template: 1fr / 2fr 1fr;
+        }
+    .main-hotels {
+            grid-template: repeat(6, 1fr) / 1fr;
+            grid-template-areas:
+                "p"
+                "p"
+                "a"
+                "a"
+                "a"
+                "a"
+            ;
+    }
+        #accomodation-block {
+            padding: 0;
+            background-color: white;
+        }
     
+        #popular-block {
+            padding: 0;
+            width: 100%;
+
+        }
+        .main-hotels {
+            padding: 2% 0;
+            background-color: white;
+        }
+        .holels-accomodation {
+            padding: 0;            
+        }
+        .hotel-accomodation img {
+            aspect-ratio: 2.5/1;
+        }
 }
 
